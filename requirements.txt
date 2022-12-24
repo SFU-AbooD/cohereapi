@@ -1,0 +1,9 @@
+asgiref==3.5.2
+Django==4.1.4
+djangorestframework==3.13.1
+pandas==1.5.2
+cohere==3.1.2
+numpy==1.24.0
+django-cors-headers==3.7.0
+django-forestadmin==1.0.5
+django-ipware==3.0.7
