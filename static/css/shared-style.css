@@ -1,0 +1,157 @@
+:root{
+    --color1:#68BBE3;
+    --color2:#0E86D4;
+    --color3:#055C9D;
+    --color4:#003060;
+    --font-size1:1.5em;
+    --font-size2:2em;
+    --font-size3:1em;
+}
+/* Predefined Classes */
+
+*{
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+body{
+    margin:  0;
+    padding: 0;
+    font-family: Source Code Pro, monospace;
+    color: #fff;
+    background-color: var(--color3);
+
+}
+body p::selection{
+    background-color: #003060;
+}
+::-webkit-scrollbar {
+    height: 4px;
+    /* if you set the heigth to zero in normal view, you won't see the scroll bar but you can move
+    by pressing shift and scroll using your mouse */
+    /* height: 0; */
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2.5px #fff;
+    /* border-radius: 4px; */
+    background: var(--color3);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--color1);
+    border-radius: 16px;
+}
+/* Nav Bar Styling */
+nav{
+    margin: 0  32px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    flex:1 0 40%;
+}
+.logo a{
+    
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+
+}
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    flex: 1 0 60%;
+    font-size: 1.05em;
+}
+.links a{
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+.links a::after{
+    content: " ";
+    display: block;
+    position:absolute;
+    top:0;
+    left: -75%;
+    opacity: .5;
+    height: 100%;
+    width: 100%;
+    background-color: var(--color1);
+    transform: ScaleX(0);
+    transition-duration: .5s ;
+    
+}
+.links a:hover::after{
+    transform: ScaleX(1);
+}
+
+.background-coverd-centerd-noRepeat{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* ***************************** */
+    margin:1em 0 0;    
+    padding-top:24px;
+    background-color: var(--color4);
+    border-radius: 16px 16px 0 0;
+}
+footer .col{
+    flex: 0 0 20%;
+}
+footer .head-list{
+    font-weight: 800;
+}
+footer ul{
+    padding: 0;
+}
+footer a{
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+footer li{
+    list-style-type: none;
+}
+
+@media screen and (max-width: 700px){
+    .logo{
+        font-size: 1.5em;
+    }
+    .links{
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: flex-start; */
+        flex:0 1;
+        width: 2vw;
+        height: 20px;
+        border-radius: 16px;
+        background-color: #68bae3;
+        /* background-color: #003060; */
+        transition: all .5s linear;
+    }
+    .links:hover{
+        gap: 20px;
+        width:  50%;
+        height: 20vh;
+        background-color: #68bae36e;
+        font-size: 1.05em;
+        padding: 10px;
+        align-items: flex-start;
+    }
+    .links li{
+        list-style-type: none;
+    }
+    footer .col{
+        flex:0 0 50%;
+        text-align: center;
+    }
+}

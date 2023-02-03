@@ -1,0 +1,59 @@
+body{
+    animation: fadeIn .75s;
+}
+.list{
+    animation: fadeIn .5s;
+}
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }  
+}
+.part1 .welcoming{
+    animation: fade-left 1.25s ;
+}
+@keyframes fade-left{
+    from{
+        opacity: 0;
+        transform: translateX(5cm) ;
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0) ;
+
+    }
+}
+.part1 img{
+    
+    animation: fade-right 1.25s 1;
+}
+@keyframes fade-right{
+    from{
+        opacity: 0;
+        transform: translateX(-5cm) ;
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0) ;
+
+    }
+}
+.part1-chat{
+    animation: fade-up 1s;
+}
+@keyframes fade-up{
+    from{
+        opacity: 0;
+        transform: translateY(5cm) ;
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0) ;
+
+    }
+}

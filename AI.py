@@ -4,7 +4,7 @@ from sklearn import metrics
 import numpy as np
 import cohere
 model_name = 'multilingual-22-12'
-api = '4VmdpRIKe4qdPmNCD4XKhPxwq5hzdqDvfDoJY590'
+api = '<api key>'
 from sklearn.linear_model import LogisticRegression
 obj = pd.read_json("file3.json")
 x = obj.content.tolist()

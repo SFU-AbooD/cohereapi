@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Ask Me :)</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="emotional, feelings" />
+        <meta name="robots" content="index,follow" />
+        <meta
+            name="description"
+            content="Using your emotional state, the feelings AI will display various events and activities in your neighborhood." />
+        <meta name="author" content="Ahmad Mahmoud" />
+        <meta name="revised" content="Wednesday, Jan 25th, 2023, 2:25 am " />
+        <link rel="shortcut icon" href="https://www.linkpicture.com/q/logo_69.jpg" type="image/x-icon" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+            <link rel="stylesheet"  type="text/css"  href="{% static 'css/transtions.css' %}"/>
+            <link rel="stylesheet"  type="text/css"  href="{% static 'css/style-chat.css' %}"/>
+            <link rel="stylesheet"  type="text/css"  href="{% static 'css/shared-style.css' %}"/>
+            <link rel="stylesheet"  type="text/css"  href="{% static 'css/chat1.css' %}"/>
+    </head>
+    <body>
+        <div class="contain">
+            <!-- the contain element is here to cover the nav and part one of the main, to give them a nice background -->
+            <nav>
+                <h1 class="logo">
+                    <a
+                        href="/"
+                        >FEELINGS</a
+                    >
+                </h1>
+                <ul class="links">
+                    <a href="#"><li>About</li></a>
+                    <a href="#"><li>Chat</li></a>
+                    <a href="#"><li>Contact</li></a>
+                </ul>
+            </nav>
+            <main>
+                <div class="form-chat horizontal-center">
+                    <form action="#Event" method="post">
+                        {%csrf_token%}
+                        <label for="feelings"
+                            >Tell me everything my friend, I'm listening.
+                        </label>
+                        <textarea
+                            name="userFeelings"
+                            id="feelings"
+                            cols="20"
+                            rows="6"
+                            maxlength="500"
+                            autofocus="autofocus"
+                            required="tell me your feelings first"></textarea>
+                        <button type="submit" >
+                            Send it
+                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            {%if data == True%}
+            <div class="chat-events">
+                <h3 id="Event"
+                > Based on your feelings, I recommend that you look at these events:</h3>
+                {%for i in items%}
+                <div class="wraper">
+                    <div class="list">
+                        <div class="part1-chat" id="event-type">
+                            <!-- in here we will show the user what type of event he will attend to, and some images of it
+                            alongside the name of the facility featuring that event -->
+                            <div class="event_type-name">
+                                <!-- the event-type span here will have the answer from the AI -->
+                                <p>
+                                    <span class="event-type">{{i.TypeofEvent}}</span>
+                                </p>
+                                <!-- the event-name span will the name of the facility featuring that event, also the data from the AI  -->
+                                <p>
+                                    <span class="event-name">Swap for more details</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="part2-chat" id="event-des">
+                            <!-- the third part will have a paragraph that describes the event,
+                                alongside some info such as when it will happen, number of participants,
+                                and the contact number-->
+                            <div class="event-description">
+                                <!-- message to zlatan_Abood -->
+                                <!-- you can ignor this part btw, if you didn't find the right contetnt -->
+                                <h3>Why this event?</h3>
+                                <p>
+                                    {{i.EventDescription}}
+                                </p>
+                            </div>
+                            <h3>About the event</h3>
+                            <div class="event-info horizontal-center">
+                                <!-- three cards that shows the time, contact number, and how may people attending the event -->
+                                <!-- this info will be giving by the AI -->
+                                <div class="card vertical-align">
+                                    <p class="info">When can I go?</p>
+                                    <p class="time">
+                                        The service/activity will be open at<br />
+                                       {{i.TimeofEvent}}
+                                    </p>
+                                </div>
+                                <div class="card vertical-align">
+                                    <p class="info">number of participants</p>
+                                    <p class="num-Of-Participants">
+                                        About {{i.NumberofParticipants}} people go there daily
+                                    </p>
+                                </div>
+                                <div class="card vertical-align">
+                                    <p class="info">Contact Number</p>
+                                    <p class="event-number">{{i.ContactNumber}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            {%endif%}
+        </div>
+        </main>
+        <footer>
+            <div class="col">
+                <span class="head-list">Our Products</span>
+                <ul>
+                <a href="#"><li>AI Feelings</li></a>
+                </ul>
+            </div>
+            <div class="col">
+                <span class="head-list">Company</span>
+                <ul>
+                    <a href="#"><li>About Us</li></a>
+                    <a href="#"><li>Partners</li></a>
+                    <a href="#"><li>Jobs</li></a>
+                </ul>
+            </div>
+            <div class="col">
+                <span class="head-list">Legal</span>
+                <ul>
+                <a href="#"><li>Privacy Policy</li></a>
+                <a href="#"><li>Terms & Conditions</li></a>
+                </ul>
+                
+            </div>
+            <div class="col">
+                <span class="head-list">Social</span>
+                <ul>
+                <a href="#"><li><i class="fa-brands fa-instagram"></i></li></a>
+                <a href="#"><li><i class="fa-brands fa-facebook"></i></li></a>
+                <a href="#"><li><i class="fa-brands fa-linkedin"></i></li></a>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,245 @@
+.contain{
+    background-image: url('https://www.linkpicture.com/q/contain-back.svg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+
+}
+.horizontal-center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.vertical-align{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.form-chat {
+    margin: 48px;
+    height: 50vh;
+}
+form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width:60%;
+}
+label {
+    flex:1 0 100%;
+    font-size: var(--font-size2);
+    color: #fff;
+    word-wrap: break-word;
+    word-break: keep-all;
+    line-height: 0.9cm;
+    
+}
+
+textarea {
+    flex:0 1 ;
+    width: 80%;
+    display: block;
+    font-size: var(--font-size1);
+    color: #fff;
+    background-color: var(--color1);
+    border-radius: 15px 0 15px 0;
+    border: 1px solid transparent;
+    opacity: 0.5;
+    outline: 0;
+    transition-duration: 0.25s;
+    word-wrap: break-word;
+    word-break: keep-all;
+    padding: 8px;
+
+}
+textarea:focus {
+    opacity: 1;
+}
+button {
+    flex: 0 1 40px;
+    width: 140px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background-color: var(--color1);
+    font-size: 24px;
+    color: #fff;
+    align-self: flex-end;
+    margin-right: 4em;
+}
+.part1-chat{
+margin: 48px;
+display: flex;
+align-items: center;
+height: 96vh;
+}
+.chat-events >h3{
+    font-size: 2em;
+    margin: 48px;
+    font-weight: 400;
+}
+.event_type-name{
+    flex:0 0 50% ;
+    font-size: 2.25em;
+    text-transform: capitalize;
+    text-align: center;
+}
+.event_type-name span{
+    text-decoration: underline;
+}
+/* event images styling */
+.part1-chat .event-images{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex: 0 0 50%;
+    gap:16px;
+
+}
+.event-images .img{
+    display: block;
+    height: 200px;
+    width: 400px;
+    border-radius: 50% 10% / 40% 30%;
+
+}
+
+.part1-chat .img1{
+background-image: url('https://www.linkpicture.com/q/img1_8.png');
+}
+.part1-chat .img2{
+    /* align-self: flex-end; */
+    background-image: url('https://www.linkpicture.com/q/img2_4.png');
+}
+.part2-chat{
+    padding: 48px;
+    background-color: #fff;
+    color: var(--color4); 
+    height: 97vh;
+}
+.event-description{
+    width: 75%;
+    
+}
+.part2-chat h3{
+    font-size: var(--font-size2);
+}
+.event-description p{
+    font-size: var(--font-size1);
+}
+.event-info{
+    justify-content: space-evenly;
+    gap: 16px;
+}
+.event-info .card{
+    flex:1 0 25%;
+    height: 175px;
+    border: 2px solid var(--color3);
+    border-radius: 19px;
+    padding: 8px;
+    text-align: center;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    
+    word-wrap: break-word;
+}
+.part2-chat .info{
+    font-size:1.2em ;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+.part3-chat{
+    /* margin: 48px; */
+    font-size: var(--font-size2);
+    text-transform: capitalize;
+    height: auto;
+}
+.part3-chat p{
+    margin:48px 48px 0px;
+    width: fit-content;
+    padding: 8px 8px 0;
+    border: 8px solid #fff;
+    border-bottom: 0;
+    
+}
+.part3-chat iframe{
+    width: 102%;
+    height: 400px;
+}
+/* .part2-chat{
+    height: 95vh;
+} */
+
+@media screen and (max-width: 800px) {
+    form {
+        padding: 15px;
+        width: 100%;
+    }
+    html,
+    body {
+        height: 100%;
+    }
+    label {
+        width: 100%;
+        font-size: var(--font-size3);
+        line-height: 0.5cm;
+    }
+    #Event{
+        font-size: var(--font-size3);  
+    }
+    button {
+        font-size: 13px;
+        padding: 0;
+        width: 70px;
+        height: 2.5px;
+        margin-right: 0;
+    }
+    textarea {
+        font-size: 13px;
+        width: 100%;
+    }
+    .event_type-name{
+        text-align: center;
+        font-size: var(--font-size3);
+    }
+    .part1-chat{
+        flex-direction: column;
+        font-size: var(--font-size3);
+
+    }
+    .event-images{
+        align-items: flex-start;
+        
+    }
+    .event-images .img{
+        width: 200px;
+        height: 100px;
+        border-radius: 16px;
+    }
+    .event-description{
+        width: 100%;
+    }
+    .part1-chat{
+        height: 80%;
+    }
+    .part2-chat h3,.event-description p{
+        font-size: var(--font-size3);
+    }
+    .event-info {
+        flex-direction: column;
+        justify-content: center;
+        font-size: smaller;
+    }
+    .event-info .card{
+        flex:1 0 50%;
+        width: 75%;
+    }
+    .part3-chat p{
+        font-size: .7em;
+    }
+}

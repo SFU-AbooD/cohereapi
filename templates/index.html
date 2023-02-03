@@ -1,154 +1,77 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    * {
-      box-sizing: border-box;
-    }
-    
-    input[type=text], select, textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      resize: vertical;
-    }
-    
-    label {
-      padding: 12px 12px 12px 0;
-      display: inline-block;
-    }
-    
-    input[type=submit] {
-      background-color: #04AA6D;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      float: right;
-    }
-    
-    input[type=submit]:hover {
-      background-color: #45a049;
-    }
-    
-    .container {
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      padding: 20px;
-    }
-    
-    .col-25 {
-      float: left;
-      width: 25%;
-      margin-top: 6px;
-    }
-    
-    .col-75 {
-      float: left;
-      width: 75%;
-      margin-top: 6px;
-    }
-    
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-    
-    @media screen and (max-width: 600px) {
-      .col-25, .col-75, input[type=submit] {
-        width: 100%;
-        margin-top: 0;
-      }
-    }
-    table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+    <head>
+        <title>Feelings</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="emotional, feelings" />
+        <meta name="robots" content="index,follow" />
+        <meta
+            name="description"
+            content="Using your emotional state, the feelings AI will display various events and activities in your neighborhood." />
+        <meta name="author" content="Ahmad Mahmoud" />
+        <meta name="revised" content="Wednesday, Jan 25th, 2023, 2:25 am " />
+        <link rel="shortcut icon" href="./media/logo.jpg" type="image/x-icon" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+        <link rel="stylesheet"  type="text/css"  href="{% static 'css/transtions.css' %}"/>
+        <link rel="stylesheet"  type="text/css"  href="{% static 'css/landing-style.css' %}" />
+        <link rel="stylesheet" type="text/css"  href="{% static 'css/shared-style.css'%}" />
+    </head>
+    <body>
+        <div class="contain">
+            <!-- the contain element is here to cover the nav and part one of the main, to give them a nice background -->
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
+            <nav>
+                <h1 class="logo">
+                    <a href="/">FEELINGS</a>
+                </h1>
+                <ul class="links">
+                    <a href="#"><li>About</li></a>
+                    <a href="#"><li>Chat</li></a>
+                    <a href="#"><li>Contact</li></a>
+                </ul>
+            </nav>
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-<body>
-    <div class="container">
-      <form action="" method="post">
-        {% csrf_token%}
-      <div class="row">
-        <div class="col-25">
-          <label for="message">Message</label>
+            <main>
+                <!-- part one will be an intro to the website -->
+                <div class="part1">
+                    <div class="welcoming">
+                        <p>
+                            Hi there!, it's your new AI friend speaking, Express
+                            to me your feelings, and I will show you nice events
+                            you can attend, and don't worry this service is free
+                            ;)
+                        </p>
+                        <a href="/chat">Let's Chat</a>
+                    </div>
+
+                    <img src="https://www.linkpicture.com/q/welcome_6.png" alt="" />
+                </div>
+            </main>
         </div>
-        <div class="col-75">
-          <input type="text" id="message" name="Message" placeholder="Text..." required maxlength="500">
+        <div class="area">
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
-      </div>
-      <br>
-      <div class="row">
-        <input type="submit" value="Submit">
-      </div>
-      </form>
-    </div>
-    <dl>
-      {%if message is not None%}
-      <dt>empty</dt>
-      <dd>- {{message.0}}</dd>
-      <dt>sadness</dt>
-      <dd>- {{message.1}}</dd>
-      <dt>enthusiasm</dt>
-      <dd>- {{message.2}}</dd>
-      <dt>neutral</dt>
-      <dd>- {{message.3}}</dd>
-      <dt>worry</dt>
-      <dd>- {{message.4}}</dd>
-      <dt>surprise</dt>
-      <dd>- {{message.5}}</dd>
-      <dt>love</dt>
-      <dd>- {{message.6}}</dd>
-      <dt>fun</dt>
-      <dd>- {{message.7}}</dd>
-      <dt>hate</dt>
-      <dd>- {{message.8}}</dd>
-      <dt>happiness</dt>
-      <dd>- {{message.9}}</dd>
-      <dt>boredom</dt>
-      <dd>- {{message.10}}</dd>
-      <dt>relief</dt>
-      <dd>- {{message.11}}</dd>
-      <dt>anger</dt>
-      <dd>- {{message.12}}</dd>
-    </dl>
-    <table>
-      <tr>
-        <th>Location</th>
-        <th>Area Name</th>
-        <th>Type of Event</th>
-        <th>Time of Event</th>
-        <th>Number of Participants</th>
-        <th>Event Description</th>
-        <th>Contact Number</th>
-      </tr>
-      {%for i in items%}
-      <tr>
-       {%for key,item in i.items%}
-        <td>{{item}}</td>
-       {%endfor%}
-      </tr>
-      {%endfor%}
-        {%endif%}
-    </table>
     </body>
 </html>
